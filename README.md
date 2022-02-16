@@ -1,5 +1,5 @@
 # Points2dCalculator
-Various operation on 2D Arrays in c++
+Various operation on 2D Arrays in C++ using Opperator overloading and the big 5.
 To compile on terminal type
   make clean
   make all
