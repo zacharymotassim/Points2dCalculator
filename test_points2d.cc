@@ -41,6 +41,10 @@ void TestPart1() {
     cout << a;
     cout << e;
 }
+void ComparePoints( Points2D<double> a1 , Points2D<double> a2 ){
+  if(a1==a2){std::cout<<"Points are equal."<<std::endl; return;}
+  std::cout<<"Points are not equal."<<std::endl;
+}
 
 void TestPart2() {
     Points2D<double> a, b;
@@ -60,6 +64,10 @@ void TestPart2() {
     cout<<c;
     cout << "Second element in a: " << endl;
     cout << a[1][0] << ", " << a[1][1] << endl;  // Should print the 2nd element.
+    std::cout<<"Testing oveloaded == on different sets of points:"<<std::endl;
+    ComparePoints(a,b);
+    std::cout<<"Testing oveloaded == on same set of points:"<<std::endl;
+    ComparePoints(a,a);
 }
 
 }  // namespace
