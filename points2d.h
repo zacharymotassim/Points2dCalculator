@@ -123,22 +123,22 @@ class Points2D {
  //  @return their difference. If the sequences are not of the same size, append the
  //    result with the remaining part of the larger sequence.
  friend Points2D operator-(const Points2D &c1, const Points2D &c2) {
-   Points2D sequence_sum ;
+   Points2D sequence_dif ;
    if(c1.size_ >c2.size_){
-     sequence_sum.size_ = c1.size_ ;
+     sequence_dif.size_ = c1.size_ ;
    }
    else{
-     sequence_sum.size_ = c2.size_ ;
+     sequence_dif.size_ = c2.size_ ;
    }
-   sequence_sum.sequence_ = new std::array<Object, 2> [ sequence_sum.size_ ] ; //[ sequence_sum.size_ ] ;
-   for( size_t i = 0 ; i < sequence_sum.size_ ; ++i ){
-   sequence_sum.sequence_[ i ][ 0 ] = c1[ i ][ 0 ] - c2[ i ][ 0 ] ;
-   sequence_sum.sequence_[ i ][ 1 ] = c1[ i ][ 1 ] - c2[ i ][ 1 ] ;
+   sequence_dif.sequence_ = new std::array<Object, 2> [ sequence_sum.size_ ] ; 
+   for( size_t i = 0 ; i < sequence_dif.size_ ; ++i ){
+   sequence_dif.sequence_[ i ][ 0 ] = c1[ i ][ 0 ] - c2[ i ][ 0 ] ;
+   sequence_dif.sequence_[ i ][ 1 ] = c1[ i ][ 1 ] - c2[ i ][ 1 ] ;
   }
-  return sequence_sum;
+  return sequence_dif;
 }
 
-//concatenates two sequences
+//concatenates two sequences:[(1,2),(3,5),(4,9)] + [(8,3),(2,9)] = [(1,2),(3,5),(4,9),(8,3),(2,9)]
 friend Points2D operator+( const Points2D &c1, const Points2D &c2 ) {
   Points2D Concatenated ;
   Concatenated.size_ = c1.size_ + c2.size_ ;
