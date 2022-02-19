@@ -10,8 +10,6 @@
 
 namespace teaching_project {
 
-// Place comments that provide a brief explanation of the class,
-// and its sample usage.
 template<typename Object>
 class Points2D {
  public:
@@ -107,6 +105,17 @@ class Points2D {
     if ( location > size_ ){ std::abort( ) ; }
     return sequence_[ location ] ;
   }
+  
+  // overloading == to check equivalency in two sets of sequences
+  friend bool operator==(const Points2D &c1, const Points2D &c2){
+    if(c1.size_!=c2.size_){return false ; }
+    for( size_t i = 0 ; i < c1.size_ ; ++i ){
+      if(c1.sequence_[ i ][ 0 ]!=c2.sequence_[ i ][ 0 ]||c1.sequence_[ i ][ 1 ]!=c2.sequence_[ i ][ 1 ]){
+        return false ;
+      }
+  }
+    return true ;
+}
 
 
  //  @c1: A sequence.
